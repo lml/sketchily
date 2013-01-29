@@ -1,5 +1,4 @@
-require "sketchily/version"
+require "sketchily/engine"
 
 module Sketchily
-  
 end

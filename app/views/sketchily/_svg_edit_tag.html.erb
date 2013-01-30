@@ -1,0 +1,50 @@
+<% # Clients of this partial may override the following variables:
+   name ||= svgedit
+   value ||= nil
+   options ||= {}
+%>
+
+<script type="text/javascript" src="/assets/embedapi.js"></script>
+<script type="text/javascript">
+  var svgCanvas = null;
+  
+  function init_embed() {
+    var frame = document.getElementById('svgedit');
+    svgCanvas = new embedded_svg_edit(frame);
+    svgCanvas.setSvgString("<%= value %>");
+
+    <% unless options[:show_menu] %>
+      // Hide main button, as we will be controlling new/load/save etc from the host document
+      var doc;
+      doc = frame.contentDocument;
+      if (!doc) {
+        doc = frame.contentWindow.document;
+      }
+
+      var mainButton = doc.getElementById('main_button');
+      mainButton.style.display = 'none';            
+    <% end %>
+    
+    $("form").attr("onSubmit", "return saveSvg()");
+  }
+  
+  function handleSvgData(data, error) {
+    if (error) {
+      alert('Error: ' + error);
+      return false;
+    }
+    else {
+      $("#<%= sanitize_to_id(name) %>").attr("value", data);
+      return true;
+    }
+  }
+  
+  function saveSvg() {			
+    return svgCanvas.getSvgString()(handleSvgData);
+  }
+</script>
+
+<iframe src="/assets/svg-editor" width="900px" height="600px" id="svgedit" onload="init_embed()"></iframe>
+
+<%= tag :input, { "type" => "hidden", "name" => name, "id" => sanitize_to_id(name), "value" => value }.update(options.stringify_keys) %>
+

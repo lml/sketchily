@@ -1,7 +1,7 @@
 module SvgEditTag
   module InstanceMethods
     def svg_edit_tag(name, value = nil, options = {})
-      tag :input, { "type" => "hidden", "name" => name, "id" => sanitize_to_id(name), "value" => value }.update(options.stringify_keys)
+      render :partial => "sketchily/svg_edit_tag", :locals => {:name => name, :value => value, :options => options}
     end
   end
 end

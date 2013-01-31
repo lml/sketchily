@@ -10,8 +10,8 @@
 svgEditor.addExtension("server_opensave", {
 	callback: function() {
 
-		var save_svg_action = 'extensions/filesave.php';
-		var save_png_action = 'extensions/filesave.php';
+		var save_svg_action = '/assets/extensions/filesave.php';
+		var save_png_action = '/assets/extensions/filesave.php';
 	
 		// Create upload target (hidden iframe)
 		var target = $('<iframe name="output_frame" src="#"/>').hide().appendTo('body');

@@ -21,11 +21,11 @@ svgEditor.addExtension("imagelib", function() {
 		}
 	});
 
-	var img_libs = [{
+	var img_libs = [/*{
 			name: 'Demo library (local)',
 			url: '/assets/extensions/imagelib/index.html',
 			description: 'Demonstration library for SVG-edit on this server'
-		}, 
+		},*/
 		{
 			name: 'IAN Symbol Libraries',
 			url: 'http://ian.umces.edu/symbols/catalog/svgedit/album_chooser.php',

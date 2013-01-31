@@ -1,0 +1,54 @@
+<% # Clients of this partial must supply the following variables:
+   # template
+   # object_name
+   # method
+   #
+   # Additionally, they may override the following variable:
+   options ||= {}
+%>
+
+<% sketchily_tag = ActionView::Helpers::InstanceTag.new(object_name, method, template, options.delete(:object)) %>
+
+<%= javascript_include_tag "embedapi" %>
+<%= javascript_include_tag "svgutils" %>
+<script type="text/javascript">
+  var svgCanvas = null;
+
+  function handleSvgData(data, error) {
+    if (error) {
+      alert('Error: ' + error);
+    }
+    else {
+      $("input#<%= sketchily_tag.send :tag_id %>").attr("value", encodeURI(svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data)));
+      $("input#<%= sketchily_tag.send :tag_id %>").closest("form").off("submit").submit();
+    }
+  }
+  
+  function init_embed() {
+    var frame = document.getElementById('svgedit');
+    svgCanvas = new embedded_svg_edit(frame);
+
+    <% unless options[:show_menu] %>
+      // Hide main button, as we will be controlling new/load/save etc from the host document
+      var doc;
+      doc = frame.contentDocument;
+      if (!doc) {
+        doc = frame.contentWindow.document;
+      }
+
+      var mainButton = doc.getElementById('main_button');
+      mainButton.style.display = 'none';            
+    <% end %>
+    
+    $("input#<%= sketchily_tag.send :tag_id %>").closest("form").on("submit", function(event) {
+      svgCanvas.getSvgString()(handleSvgData);
+      event.preventDefault();
+    });
+  }
+</script>
+
+<iframe src="/assets/svg-editor.html?source=data:image/svg+xml;base64,<%= sketchily_tag.value(sketchily_tag.object) %>"
+  width="<%= options[:width] || "900px" %>" height="<%= options[:width] || "600px" %>" id="svgedit" onload="init_embed()"></iframe>
+
+<%= sketchily_tag.to_input_field_tag("hidden", options.except(:show_menu, :width, :height)) %>
+

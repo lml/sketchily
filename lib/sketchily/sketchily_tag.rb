@@ -1,5 +1,5 @@
 module SketchilyTag
-  module InstanceMethods
+  module ActionViewBaseInstanceMethods
     def sketchily_tag(name, value = nil, options = {})
       Sketchily.render(:partial => "sketchily/sketchily_tag",
         :locals => {:name => name, :id => sanitize_to_id(name),
@@ -12,4 +12,4 @@ module SketchilyTag
   end
 end
 
-ActionView::Helpers::FormTagHelper.send :include, SketchilyTag::InstanceMethods
+ActionView::Base.send :include, SketchilyTag::ActionViewBaseInstanceMethods

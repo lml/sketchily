@@ -19,7 +19,7 @@
       alert('Error: ' + error);
     }
     else {
-      $("input#<%= sketchily_tag.send :tag_id %>").attr("value", encodeURI(svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data)));
+      $("input#<%= sketchily_tag.send :tag_id %>").attr("value", "<?xml version=\"1.0\"?>\n" + data);
       $("input#<%= sketchily_tag.send :tag_id %>").closest("form").off("submit").submit();
     }
   }
@@ -44,11 +44,13 @@
       svgCanvas.getSvgString()(handleSvgData);
       event.preventDefault();
     });
+
+    svgCanvas.setSvgString('<%= sketchily_tag.value(sketchily_tag.object).try(:squish).try(:html_safe) %>');
   }
 </script>
 
-<iframe src="/assets/svg-editor.html?source=data:image/svg+xml;base64,<%= sketchily_tag.value(sketchily_tag.object) %>"
-  width="<%= options[:width] || "900px" %>" height="<%= options[:width] || "600px" %>" id="svgedit" onload="init_embed()"></iframe>
+<iframe src="/assets/svg-editor.html?source="
+  width="<%= options[:width] || "900px" %>" height="<%= options[:width] || "600px" %>" id="svgedit" onload="init_embed();"></iframe>
 
 <%= sketchily_tag.to_input_field_tag("hidden", options.except(:show_menu, :width, :height)) %>
 

@@ -8,42 +8,14 @@
    height ||= "650px" %>
 
 <%= javascript_include_tag "embedapi" %>
+<%= javascript_include_tag "svgutils" %>
+
 <script type="text/javascript">
-  var svgCanvas = null;
-
-  function handleSvgData_<%= id %>(data, error) {
-    if (error) {
-      alert('Error: ' + error);
-    }
-    else {
-      $("input#<%= id %>").attr("value", "<?xml version=\"1.0\"?>\n" + data);
-      $("input#<%= id %>").closest("form").off("submit").submit();
-    }
-  }
-  
-  function initEmbed_<%= id %>() {
-    var frame = document.getElementById('svgedit_<%= id %>');
-    svgCanvas = new embedded_svg_edit(frame);
-
-    <% unless show_menu %>
-      // Hide main button, as we will be controlling new/load/save etc from the host document
-      var doc;
-      doc = frame.contentDocument;
-      if (!doc) {
-        doc = frame.contentWindow.document;
-      }
-
-      var mainButton = doc.getElementById('main_button');
-      mainButton.style.display = 'none';            
-    <% end %>
-    
-    $("input#<%= id %>").closest("form").on("submit", function(event) {
-      svgCanvas.getSvgString()(handleSvgData_<%= id %>);
-      event.preventDefault();
-    });
-
-    svgCanvas.setSvgString('<%= value.try(:squish).try(:html_safe) %>');
-  }
+  <%= render :partial => "sketchily/embed",
+             :formats => :js,
+             :locals => {:id => id,
+                         :value => value,
+                         :show_menu => show_menu} %>
 </script>
 
 <iframe src="/assets/svg-editor.html?source="

@@ -7,6 +7,7 @@
 <% sketchily_tag = ActionView::Helpers::InstanceTag.new(object_name, method, template, options.delete(:object)) %>
 
 <%= render :partial => "sketchily/embed",
+           :formats => :html,
            :locals => {:id => sketchily_tag.send(:tag_id),
                        :value => sketchily_tag.value(sketchily_tag.object),
                        :show_menu => options[:show_menu],

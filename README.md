@@ -25,6 +25,7 @@ The f.sketchily format accepts a method name and an options hash.
 The sketchily format accepts an object name, a method name and an options hash.
 The sketchily_tag format accepts a tag name, the svg string to be edited and an options hash.
 Currently available options are width, height, show_menu (true if you want svg-edit's menu to be displayed) and other standard html attributes.
+It is recommended that the database entries associated with sketchily form elements be of type 'text'.
 
 ## Contributing
 

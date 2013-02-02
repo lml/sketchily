@@ -38,5 +38,5 @@ function initEmbed_<%= id %>() {
     event.preventDefault();
   });
 
-  svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value %>"));
+  svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));
 }

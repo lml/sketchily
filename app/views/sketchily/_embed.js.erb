@@ -3,7 +3,8 @@
    # Clients of this partial must supply the following variables:
    # id
    # value
-   # show_menu %>
+   # show_menu
+   # hide_image_tool %>
 
 var svgCanvas_<%= id %> = null;
 
@@ -20,17 +21,24 @@ function handleSvgData_<%= id %>(data, error) {
 function initEmbed_<%= id %>() {
   var frame = document.getElementById('svgedit_<%= id %>');
   svgCanvas_<%= id %> = new embedded_svg_edit(frame);
+  
+  var doc;
+  doc = frame.contentDocument;
+  if (!doc) {
+    doc = frame.contentWindow.document;
+  }
 
-  <% unless show_menu %>
-    // Hide main button, as we will be controlling new/load/save etc from the host document
-    var doc;
-    doc = frame.contentDocument;
-    if (!doc) {
-      doc = frame.contentWindow.document;
-    }
-
+  <% if show_menu %>
     var mainButton = doc.getElementById('main_button');
-    mainButton.style.display = 'none';            
+    mainButton.style.display = 'block';
+    var toolsTop = doc.getElementById('tools_top');
+    toolsTop.style.left = '120px';
+    toolsTop.style.right = '2px';
+  <% end %>
+  
+  <% if hide_image_tool %>
+    var imageTool = doc.getElementById('tool_image');
+    imageTool.style.display = 'none';
   <% end %>
   
   $("input#<%= id %>").closest("form").one("submit", function(event) {

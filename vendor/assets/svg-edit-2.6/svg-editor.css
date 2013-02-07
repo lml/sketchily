@@ -345,6 +345,7 @@ div.palette_item:first-child {
 	top: 4px;
 	left: 5px;
 	z-index: 5;
+	display: none;
 }
 
  #main_icon {
@@ -381,10 +382,18 @@ div.palette_item:first-child {
 	float: left;
 }
 
+#main_button > div {
+	float: left;
+}
+
  #main_button .dropdown {
 	position: absolute;
 	right: 7px;
 	top: 4px;
+}
+
+#main_button .tool_sep {
+	margin-top: 5px;
 }
 
  #main_icon span {
@@ -470,8 +479,8 @@ div.palette_item:first-child {
 
 #tools_top {
 	position: absolute;
-	left: 108px;
-	right: 2px;
+	/*left: 108px;*/
+	/*right: 2px;*/
 	top: 2px;
 	height: 40px;
 	border-bottom: none;

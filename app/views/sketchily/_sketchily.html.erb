@@ -11,8 +11,9 @@
            :locals => {:id => sketchily_tag.send(:tag_id),
                        :value => sketchily_tag.value(sketchily_tag.object),
                        :show_menu => options[:show_menu],
+                       :hide_image_tool => options[:hide_image_tool],
                        :width => options[:width],
                        :height => options[:height]} %>
 
-<%= sketchily_tag.to_input_field_tag("hidden", options.except(:show_menu, :width, :height)) %>
+<%= sketchily_tag.to_input_field_tag("hidden", options.except(:show_menu, :hide_image_tool, :width, :height)) %>
 

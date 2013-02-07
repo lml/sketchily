@@ -4,6 +4,7 @@
    #
    # Additionally, they may override the following variables:
    show_menu ||= false
+   hide_image_tool ||= false
    width ||= "750px"
    height ||= "650px" %>
 
@@ -15,7 +16,8 @@
              :formats => :js,
              :locals => {:id => id,
                          :value => value,
-                         :show_menu => show_menu} %>
+                         :show_menu => show_menu,
+                         :hide_image_tool => hide_image_tool} %>
 </script>
 
 <iframe src="/assets/svg-editor.html?source="

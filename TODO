@@ -1,9 +1,5 @@
-Possible to do any customization of the editor…
-
-    which buttons are there (e.g. can we get rid of the image button?)
-    where they are (e.g. can we put them all above or below the canvas, not beside it to save space?)
-    can we not have the scrolly feature where the canvas moves when you move your mouse around?, 
-    etc
+Customize buttons (e.g. can we put them all above or below the canvas, not beside it to save space?)
+Can we not have the scrolly feature where the canvas moves when you move your mouse around?
 
 Can we control the canvas size?  Looks like it is defaulting to 640 x 480.
 Can we turn the rulers on and off?

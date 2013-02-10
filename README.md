@@ -42,6 +42,7 @@ Currently available options are:
 - `canvas_height` (number specifying initial canvas height)
 - `canvas_expansion` (0 if you want to disable scrolling)
 - `hide_rulers` (true if you want to hide the canvas rulers)
+- `url` (start the canvas with the given svg)
 - other standard html attributes for the input tag
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.

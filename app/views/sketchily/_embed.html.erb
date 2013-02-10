@@ -10,7 +10,9 @@
    canvas_expansion ||= 3
    hide_rulers ||= false
    width ||= "750px"
-   height ||= "650px" %>
+   height ||= "650px"
+   url ||= nil
+%>
 
 <%= javascript_include_tag "embedapi" %>
 <%= javascript_include_tag "svgutils" %>
@@ -30,6 +32,7 @@
                 :dimensions => [canvas_width, canvas_height].join(','),
                 :canvas_expansion => canvas_expansion,
                 :showRulers => !hide_rulers}
+  query_hash[:url] = url if url
   iframe_src.query = query_hash.map{|p| "#{p[0]}=#{p[1]}"}.join('&')
 %>
 

@@ -17,7 +17,8 @@
                        :canvas_expansion => options[:canvas_expansion],
                        :hide_rulers => options[:hide_rulers],
                        :width => options[:width],
-                       :height => options[:height]} %>
+                       :height => options[:height],
+                       :url => options[:url]} %>
 
 <%= sketchily_tag.to_input_field_tag("hidden", options.except(:show_menu, :hide_image_tool, :canvas_width, :canvas_height, :canvas_expansion, :hide_rulers, :width, :height)) %>
 

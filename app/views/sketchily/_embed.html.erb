@@ -24,5 +24,11 @@
                          :hide_image_tool => hide_image_tool} %>
 </script>
 
-<iframe src="/assets/svg-editor.html?source=&dimensions=<%= "#{canvas_width},#{canvas_height}" %>&canvas_expansion=<%= canvas_expansion %>&showRulers=<%= !hide_rulers %>"
-  width="<%= width %>" height="<%= height %>" id="svgedit_<%= id %>" onload="initEmbed_<%= id %>();"></iframe>
+<%= tag(
+  :iframe,
+  :src => "/assets/svg-editor.html?source=&dimensions=#{canvas_width},#{canvas_height}&canvas_expansion=#{canvas_expansion}&showRulers=#{!hide_rulers}",
+  :width => width,
+  :height => height,
+  :id => "svgedit_#{id}",
+  :onload => "initEmbed_#{id}();"
+)%>

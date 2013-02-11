@@ -4,6 +4,7 @@ module SketchilyTag
       Sketchily.render(
         :partial => "sketchily/sketchily_tag",
         :locals => {
+          :template => self,
           :name => name,
           :id => sanitize_to_id(name),
           :value => value,

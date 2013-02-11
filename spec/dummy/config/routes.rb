@@ -1,4 +1,7 @@
 Dummy::Application.routes.draw do
+  resources :drawings
+  match 'sketchily/sketchily' => 'sketchily#sketchily', :as => :sketchily
+  match 'sketchily/sketchily_tag' => 'sketchily#sketchily_tag', :as => :sketchily_tag
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

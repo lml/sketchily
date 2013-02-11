@@ -5,7 +5,12 @@ module Sketchily
   VIEW.view_paths << "#{ROOT}/app/views"
 
   def self.render(options = {}, local_assigns = {}, &block)
-    VIEW.render(options, local_assigns, &block)
+    template = if options[:locals] && options[:locals][:template]
+                 options[:locals][:template]
+               else
+                 VIEW
+               end
+    template.render(options, local_assigns, &block)
   end
 end
 

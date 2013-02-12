@@ -72,6 +72,17 @@ Example usage (haml):
 
     = sketchily_show @shirt.svg, :width => "500"
 
+## Browser Support
+
+Although more testing is needed, we currently believe sketchily supports any browsers that svg-edit 2.6 supports, namely:
+
+- Firefox 1.5+
+- Opera 9.50+
+- Safari 4+
+- Chrome 1+
+- IE 9+
+- IE 6+ (with the Chrome Frame plugin) 
+
 ## Contributing
 
 1. Fork it

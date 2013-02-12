@@ -25,7 +25,11 @@ Sketchily adds new form elements which can be accessed by calling:
 - `f.sketchily` or simply `sketchily` from inside a `form_for @my_object |f|`
 - `sketchily_tag` from inside a `form_tag`
 
-### `f.sketchily` and `sketchily_tag`
+This gem also adds a helper method that can be called to display the resulting SVG images (without an editor):
+
+- `sketchily_show` from any view template
+
+### `sketchily` and `sketchily_tag` functions
 
 - Both of these functions work exactly like the equivalent `hidden_field` functions, except that svg-edit is displayed instead.
 - The `f.sketchily` format accepts a method name and an options hash.
@@ -51,6 +55,22 @@ Example usage (haml):
     = form_for @shirt do |f|
       f.text_field :title
       f.sketchily :svg
+
+### `sketchily_show` helper
+
+- This function takes the base64-encoded SVG string as an argument and an options hash.
+- The SVG string can be directly read from the field used by the previous functions.
+
+Currently available options are:
+
+- `width`
+- `height`
+
+Passing only one of those options should keep the aspect ratio constant in most browsers.
+
+Example usage (haml):
+
+    = sketchily_show @shirt.svg, :width => "500"
 
 ## Contributing
 

@@ -345,7 +345,6 @@ div.palette_item:first-child {
 	top: 4px;
 	left: 5px;
 	z-index: 5;
-	display: none;
 }
 
  #main_icon {
@@ -479,8 +478,8 @@ div.palette_item:first-child {
 
 #tools_top {
 	position: absolute;
-	/*left: 108px;*/
-	/*right: 2px;*/
+	left: 108px;
+	right: 2px;
 	top: 2px;
 	height: 40px;
 	border-bottom: none;

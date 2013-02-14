@@ -8,14 +8,14 @@
            :formats => :html,
            :locals => {:id => id,
                        :value => value,
-                       :show_menu => options[:show_menu],
+                       :hide_menu => options[:hide_menu],
+                       :hide_rulers => options[:hide_rulers],
                        :hide_image_tool => options[:hide_image_tool],
                        :canvas_width => options[:canvas_width],
                        :canvas_height => options[:canvas_height],
                        :canvas_expansion => options[:canvas_expansion],
-                       :hide_rulers => options[:hide_rulers],
                        :width => options[:width],
                        :height => options[:height]} %>
 
-<%= tag :input, { "type" => "hidden", "name" => name, "id" => id, "value" => value }.update(options.except(:show_menu, :hide_image_tool, :canvas_width, :canvas_height, :canvas_expansion, :hide_rulers, :width, :height).stringify_keys) %>
+<%= tag :input, { "type" => "hidden", "name" => name, "id" => id, "value" => value }.update(options.except(:hide_menu, :hide_rulers, :hide_image_tool, :canvas_width, :canvas_height, :canvas_expansion, :width, :height).stringify_keys) %>
 

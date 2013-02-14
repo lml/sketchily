@@ -3,7 +3,7 @@
    # value
    #
    # Additionally, they may override the following variables:
-   show_menu ||= false
+   hide_menu ||= false
    hide_image_tool ||= false
    canvas_width ||= 640
    canvas_height ||= 480
@@ -20,7 +20,7 @@
              :formats => :js,
              :locals => {:id => id,
                          :value => value,
-                         :show_menu => show_menu,
+                         :hide_menu => hide_menu,
                          :hide_image_tool => hide_image_tool} %>
 </script>
 

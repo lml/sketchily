@@ -3,7 +3,7 @@
    # Clients of this partial must supply the following variables:
    # id
    # value
-   # show_menu
+   # hide_menu
    # hide_image_tool %>
 
 var svgCanvas_<%= id %> = null;
@@ -36,12 +36,12 @@ function initEmbed_<%= id %>() {
     doc = frame.contentWindow.document;
   }
 
-  <% if show_menu %>
+  <% if hide_menu %>
     var mainButton = doc.getElementById('main_button');
-    mainButton.style.display = 'block';
+    mainButton.style.display = 'none';
     var toolsTop = doc.getElementById('tools_top');
-    toolsTop.style.left = '120px';
-    toolsTop.style.right = '2px';
+    toolsTop.style.left = '';
+    toolsTop.style.right = '';
   <% end %>
   
   <% if hide_image_tool %>

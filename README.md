@@ -40,7 +40,7 @@ Currently available options are:
 
 - `width`
 - `height`
-- `show_menu` (true if you want svg-edit's menu to be displayed)
+- `hide_menu` (true if you want svg-edit's menu to be hidden)
 - `hide_image_tool` (true if you want to hide the image tool button)
 - `canvas_width` (number specifying initial canvas width)
 - `canvas_height` (number specifying initial canvas height)

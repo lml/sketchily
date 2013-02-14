@@ -81,7 +81,7 @@ Although more testing is needed, we currently believe sketchily supports any bro
 - Safari 4+
 - Chrome 1+
 - IE 9+
-- IE 6+ (with the Chrome Frame plugin) 
+- IE 6+ (with the [Chrome Frame plugin](http://www.google.com/chromeframe)) 
 
 ## Contributing
 

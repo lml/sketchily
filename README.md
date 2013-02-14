@@ -1,6 +1,6 @@
 # Sketchily
 
-Sketchily allows the easy integration of svg-edit with any rails application.
+Sketchily allows the easy integration of [svg-edit](http://code.google.com/p/svg-edit/) with any rails application.
 
 Currently supports and provides `svg-edit-2.6`.
 

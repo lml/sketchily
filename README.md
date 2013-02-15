@@ -33,7 +33,7 @@ This gem also adds a helper method that can be called to display the resulting S
 
 - Both of these functions work exactly like the equivalent `hidden_field` functions, except that svg-edit is displayed instead.
 - The `f.sketchily` format accepts a method name and an options hash.
-- The sketchily format accepts an object name, a method name and an options hash.
+- The `sketchily` format (called without the form builder object) accepts an object name, a method name and an options hash.
 - The `sketchily_tag` format accepts a tag name, the svg string to be edited and an options hash.
 
 Currently available options are:

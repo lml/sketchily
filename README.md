@@ -60,7 +60,7 @@ Example usage (haml):
 ### `sketchily_show` helper
 
 - This function takes the base64-encoded SVG string as an argument and an options hash.
-- The SVG string can be directly read from the field used by the previous functions.
+- The SVG string can be directly read from the field used by the `sketchily` and `sketchily_tag` functions.
 
 Currently available options are:
 

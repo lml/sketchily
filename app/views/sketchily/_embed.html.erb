@@ -3,14 +3,15 @@
    # value
    #
    # Additionally, they may override the following variables:
-   hide_menu ||= false
-   hide_image_tool ||= false
+   width ||= "750px"
+   height ||= "650px"
    canvas_width ||= 640
    canvas_height ||= 480
    canvas_expansion ||= 3
    hide_rulers ||= false
-   width ||= "750px"
-   height ||= "650px" %>
+   hide_menu ||= false
+   hide_image_tool ||= false
+   hide_hyperlink_tool ||= false %>
 
 <%= javascript_include_tag "embedapi" %>
 <%= javascript_include_tag "svgutils" %>
@@ -21,7 +22,8 @@
              :locals => {:id => id,
                          :value => value,
                          :hide_menu => hide_menu,
-                         :hide_image_tool => hide_image_tool} %>
+                         :hide_image_tool => hide_image_tool,
+                         :hide_hyperlink_tool => hide_hyperlink_tool} %>
 </script>
 
 <iframe src="/assets/svg-editor.html?source=&dimensions=<%= "#{canvas_width},#{canvas_height}" %>&canvas_expansion=<%= canvas_expansion %>&showRulers=<%= !hide_rulers %>"

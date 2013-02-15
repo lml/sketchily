@@ -38,14 +38,15 @@ This gem also adds a helper method that can be called to display the resulting S
 
 Currently available options are:
 
-- `width`
-- `height`
-- `hide_menu` (true if you want svg-edit's menu to be hidden)
-- `hide_image_tool` (true if you want to hide the image tool button)
-- `canvas_width` (number specifying initial canvas width)
-- `canvas_height` (number specifying initial canvas height)
+- `width` (total width of editor)
+- `height` (total height of editor)
+- `canvas_width` (initial canvas width)
+- `canvas_height` (initial canvas height)
 - `canvas_expansion` (0 if you want to disable scrolling)
 - `hide_rulers` (true if you want to hide the canvas rulers)
+- `hide_menu` (true if you want svg-edit's menu to be hidden)
+- `hide_image_tool` (true if you want to hide the image tool button)
+- `hide_hyperlink_tool` (true if you want to hide the hyperlink tool button)
 - other standard html attributes for the input tag
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.

@@ -4,7 +4,8 @@
    # id
    # value
    # hide_menu
-   # hide_image_tool %>
+   # hide_image_tool
+   # hide_hyperlink_tool %>
 
 var svgCanvas_<%= id %> = null;
 
@@ -38,14 +39,19 @@ function initEmbed_<%= id %>() {
 
   <% if hide_menu %>
     var mainButton = doc.getElementById('main_button');
-    mainButton.style.display = 'none';
+    mainButton.parentNode.removeChild(mainButton);
     var toolsTop = doc.getElementById('tools_top');
     toolsTop.style.left = '5px';
   <% end %>
   
   <% if hide_image_tool %>
     var imageTool = doc.getElementById('tool_image');
-    imageTool.style.display = 'none';
+    imageTool.parentNode.removeChild(imageTool);
+  <% end %>
+
+  <% if hide_hyperlink_tool %>
+    var hyperlinkTool = doc.getElementById('tool_make_link');
+    hyperlinkTool.parentNode.removeChild(hyperlinkTool);
   <% end %>
   
   attachSubmitHandler_<%= id %>();

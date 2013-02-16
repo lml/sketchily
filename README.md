@@ -73,10 +73,10 @@ Example usage (haml):
 
 Currently available options are:
 
-- `width`
-- `height`
+- `width` (width of resulting image object)
+- `height` (height of resulting image object)
 
-Passing only one of those options should keep the aspect ratio constant in most browsers.
+Passing only one of those options should keep the aspect ratio of the SVG constant in most browsers.
 
 Example usage (haml):
 

@@ -134,7 +134,7 @@ svgEditor.readLang({
 		"add_subpath": "Adăugaţi sub-traiectorie",
 		"openclose_path": "Deschide/inchide sub-traiectorie",
 		"source_save": "Folosiţi Schimbările",
-		"cut": "Tăiere"",
+		"cut": "Tăiere",
 		"copy": "Copiere",
 		"paste": "Reproducere",
 		"paste_in_place": "Reproducere pe loc",

@@ -18,6 +18,12 @@ Or install it yourself as:
 
     $ gem install sketchily
 
+Note that sketchily will **automatically** add the following files to your asset precompilation list:
+
+    sketchily.css, sketchily.js, sketchily_embed.js, canvg/canvg.js, canvg/rgbcolor.js, extensions/ext-*.js, locale/lang.*.js
+
+Other html files and images used by svg-edit will also be precompiled.
+
 ## Usage
 
 Sketchily adds new form elements which can be accessed by calling:
@@ -53,9 +59,11 @@ It is recommended that the database entries associated with sketchily form eleme
 
 Example usage (haml):
 
-    = form_for @shirt do |f|
-      f.text_field :title
-      f.sketchily :svg
+```haml
+= form_for @shirt do |f|
+  f.text_field :title
+  f.sketchily :svg
+```
 
 ### `sketchily_show` helper
 
@@ -71,7 +79,9 @@ Passing only one of those options should keep the aspect ratio constant in most 
 
 Example usage (haml):
 
-    = sketchily_show @shirt.svg, :width => "500"
+```haml
+= sketchily_show @shirt.svg, :width => "500"
+```
 
 ## Browser Support
 

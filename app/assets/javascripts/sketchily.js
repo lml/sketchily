@@ -1,0 +1,10 @@
+//= require jquery
+//= require js-hotkeys/jquery.hotkeys.min
+//= require jquerybbq/jquery.bbq.min
+//= require svgicons/jquery.svgicons
+//= require jgraduate/jquery.jgraduate.min
+//= require spinbtn/JQuerySpinBtn.min
+//= require touch
+//= require svgedit.compiled
+//= require jquery-ui/jquery-ui-1.8.17.custom.min
+//= require jgraduate/jpicker

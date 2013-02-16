@@ -57,13 +57,13 @@ Currently available options are:
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.
 
-The following examples assume that the database table for @my_object has a `sketch` column of type `text`.
+The following examples assume that the database table for `@my_object` has a `sketch` column of type `text`.
 
 Example usage (haml):
 
 ```haml
 = form_for @my_object do |f|
-  = f.sketchily :sketch
+  = f.sketchily :sketch, :hide_menu => true
 ```
 
 ### `sketchily_show` helper

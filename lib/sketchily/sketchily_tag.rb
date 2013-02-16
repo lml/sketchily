@@ -13,3 +13,4 @@ module SketchilyTag
 end
 
 ActionView::Base.send :include, SketchilyTag::ActionViewBaseInstanceMethods
+

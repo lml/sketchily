@@ -1,3 +1,7 @@
+require "sketchily/engine"
+require "sketchily/sketchily"
+require "sketchily/sketchily_tag"
+
 module Sketchily
   ASSET_FILES = %w(sketchily.css sketchily.js sketchily_embed.js canvg/canvg.js canvg/rgbcolor.js extensions/ext-*.js locale/lang.*.js)
 
@@ -16,8 +20,4 @@ module Sketchily
     VIEW.render(options, local_assigns, &block)
   end
 end
-
-require "sketchily/engine"
-require "sketchily/sketchily"
-require "sketchily/sketchily_tag"
 

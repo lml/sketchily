@@ -18,9 +18,9 @@ Or install it yourself as:
 
     $ gem install sketchily
 
-Note that sketchily will **automatically** add the following files to your asset precompilation list:
+**Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
-    sketchily.css, sketchily.js, sketchily_embed.js, canvg/canvg.js, canvg/rgbcolor.js, extensions/ext-*.js, locale/lang.*.js
+    sketchily.css sketchily.js sketchily_embed.js canvg/canvg.js canvg/rgbcolor.js extensions/ext-*.js locale/lang.*.js
 
 Other html files and images used by svg-edit will also be precompiled.
 
@@ -57,12 +57,13 @@ Currently available options are:
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.
 
+The following examples assume that the database table for @my_object has a `sketch` column of type `text`.
+
 Example usage (haml):
 
 ```haml
-= form_for @shirt do |f|
-  f.text_field :title
-  f.sketchily :svg
+= form_for @my_object do |f|
+  = f.sketchily :sketch
 ```
 
 ### `sketchily_show` helper
@@ -80,7 +81,7 @@ Passing only one of those options should keep the aspect ratio constant in most 
 Example usage (haml):
 
 ```haml
-= sketchily_show @shirt.svg, :width => "500"
+= sketchily_show @my_object.sketch, :width => "500"
 ```
 
 ## Browser Support

@@ -22,9 +22,13 @@ function handleSvgData_<%= id %>(data, error) {
   }
   else {
     $("input#<%= id %>").attr("value", svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data));
-    $("input#<%= id %>").closest("form").submit();
+    getSvgEditForm().trigger('svgDataHandled');
     attachSubmitHandler_<%= id %>();
   }
+}
+
+function getSvgEditForm() {
+  return $("input#<%= id %>").closest("form");
 }
 
 function initEmbed_<%= id %>() {
@@ -53,7 +57,16 @@ function initEmbed_<%= id %>() {
     var hyperlinkTool = doc.getElementById('tool_make_link');
     hyperlinkTool.parentNode.removeChild(hyperlinkTool);
   <% end %>
-  
+
+  getSvgEditForm().on('svgDataHandled', function() {
+    <% case submit_action[:type]
+       when :default %>
+         getSvgEditForm().submit();
+    <% when :click %>
+         $('#<%= submit_action[:button_id] %>').trigger('click');
+    <% end %>
+  });
+
   attachSubmitHandler_<%= id %>();
 
   svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));

@@ -53,6 +53,7 @@ Currently available options are:
 - `hide_menu` (true if you want svg-edit's menu to be hidden)
 - `hide_image_tool` (true if you want to hide the image tool button)
 - `hide_hyperlink_tool` (true if you want to hide the hyperlink tool button)
+- `submit_action` (optional, see below)
 - other standard html attributes for the input tag
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.
@@ -65,6 +66,18 @@ Example usage (haml):
 = form_for @my_object do |f|
   = f.sketchily :sketch, :hide_menu => true
 ```
+
+In certain situations, in particular where you are submitting a sketchily form using JS/AJAX, you'll need to specify a non-default `submit_action`.  If you don't, your remote/AJAX forms will likely submit as HTML requests instead of JS requests.  The `submit_action` argument lets you tell sketchily how you'd like your form submitted.  
+
+The `submit_action` argument can take one of the following forms:
+
+    submit_action => {:type => :default}
+
+or
+
+    submit_actioo => {:type => :click, :button_id => YOUR_SUBMIT_BUTTON_ID_HERE}
+
+In the former case, after sketchily does its magic to pull the SVG content out of the embedded editor, the form will be submitted using jQuery's `submit()` method.  In the latter case, the form will be submitted by triggering the `click` event on your specified button.
 
 ### `sketchily_show` helper
 

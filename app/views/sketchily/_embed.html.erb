@@ -11,7 +11,8 @@
    hide_rulers ||= false
    hide_menu ||= false
    hide_image_tool ||= false
-   hide_hyperlink_tool ||= false %>
+   hide_hyperlink_tool ||= false
+   submit_action ||= {:type => :default} %>
 
 <%= javascript_include_tag "sketchily_embed" %>
 
@@ -22,7 +23,8 @@
                          :value => value,
                          :hide_menu => hide_menu,
                          :hide_image_tool => hide_image_tool,
-                         :hide_hyperlink_tool => hide_hyperlink_tool} %>
+                         :hide_hyperlink_tool => hide_hyperlink_tool,
+                         :submit_action => submit_action} %>
 </script>
 
 <iframe src="/assets/svg-editor.html?source=&dimensions=<%= "#{canvas_width},#{canvas_height}" %>&canvas_expansion=<%= canvas_expansion %>&showRulers=<%= !hide_rulers %>"

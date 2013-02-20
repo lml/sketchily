@@ -28,7 +28,7 @@ Also make sure your `application.js` requires jquery (it usually does by default
 
 ```js
 //= require jquery
-```sh
+```
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 

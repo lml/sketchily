@@ -58,3 +58,5 @@ function initEmbed_<%= id %>() {
 
   svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));
 }
+
+$("#svgedit_<%= id %>").load(initEmbed_<%= id %>);

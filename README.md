@@ -8,15 +8,27 @@ Currently supports and provides `svg-edit-2.6`.
 
 Add this line to your application's Gemfile:
 
+    ```rb
     gem 'sketchily'
+    ```
 
 And then execute:
 
+    ```sh
     $ bundle
+    ```
 
 Or install it yourself as:
 
+    ```sh
     $ gem install sketchily
+    ```
+
+Also make sure your `application.js` requires jquery (it usually does by default):
+
+    ```js
+    //= require jquery
+    ```sh
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
@@ -61,10 +73,10 @@ The following examples assume that the database table for `@my_object` has a `sk
 
 Example usage (haml):
 
-```haml
-= form_for @my_object do |f|
-  = f.sketchily :sketch, :hide_menu => true
-```
+    ```haml
+    = form_for @my_object do |f|
+      = f.sketchily :sketch, :hide_menu => true
+    ```
 
 ### `sketchily_show` helper
 
@@ -80,9 +92,9 @@ Passing only one of those options should keep the aspect ratio of the SVG consta
 
 Example usage (haml):
 
-```haml
-= sketchily_show @my_object.sketch, :width => "500"
-```
+    ```haml
+    = sketchily_show @my_object.sketch, :width => "500"
+    ```
 
 ## Browser Support
 

@@ -9,11 +9,14 @@
 
 var svgCanvas_<%= id %> = null;
 
+function submitHandler_<%= id %>(e) {
+  svgCanvas_<%= id %>.getSvgString()(handleSvgData_<%= id %>);
+  e.preventDefault();
+  e.stopImmediatePropagation();
+}
+
 function attachSubmitHandler_<%= id %>() {
-  $("input#<%= id %>").closest("form").one("submit", function(event) {
-    svgCanvas_<%= id %>.getSvgString()(handleSvgData_<%= id %>);
-    return false;
-  });
+  $("input#<%= id %>").closest("form").on("submit", submitHandler_<%= id %>);
 }
 
 function handleSvgData_<%= id %>(data, error) {
@@ -22,8 +25,9 @@ function handleSvgData_<%= id %>(data, error) {
   }
   else {
     $("input#<%= id %>").attr("value", svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data));
+    $("input#<%= id %>").closest("form").off("submit", submitHandler_<%= id %>);
+    $("input#<%= id %>").closest("form").one("submit", attachSubmitHandler_<%= id %>);
     $("input#<%= id %>").closest("form").submit();
-    attachSubmitHandler_<%= id %>();
   }
 }
 
@@ -53,10 +57,10 @@ function initEmbed_<%= id %>() {
     var hyperlinkTool = doc.getElementById('tool_make_link');
     hyperlinkTool.parentNode.removeChild(hyperlinkTool);
   <% end %>
-  
-  attachSubmitHandler_<%= id %>();
 
   svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));
+
+  attachSubmitHandler_<%= id %>();
 }
 
 $("#svgedit_<%= id %>").load(initEmbed_<%= id %>);

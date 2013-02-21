@@ -3,7 +3,7 @@ module Sketchily
     def sketchily(method, options = {})
       Sketchily.render(:partial => "sketchily/sketchily",
         :locals => {:template => @template, :object_name => @object_name,
-                    :method => method, :options => objectify_options(options)}).html_safe
+                    :method => method, :options => objectify_options(options)})
     end
 
     def svg_edit(method, options = {})
@@ -15,7 +15,7 @@ module Sketchily
     def sketchily(object_name, method, options = {})
       Sketchily.render(:partial => "sketchily/sketchily",
         :locals => {:template => self, :object_name => object_name,
-                    :method => method, :options => options}).html_safe
+                    :method => method, :options => options})
     end
 
     def svg_edit(object_name, method, options = {})

@@ -56,16 +56,27 @@ This gem also adds a helper method that can be called to display the resulting S
 
 Currently available options are:
 
-- `width` (total width of editor)
-- `height` (total height of editor)
-- `canvas_width` (initial canvas width)
-- `canvas_height` (initial canvas height)
-- `canvas_expansion` (0 if you want to disable scrolling)
-- `hide_rulers` (true if you want to hide the canvas rulers)
-- `hide_menu` (true if you want svg-edit's menu to be hidden)
-- `hide_image_tool` (true if you want to hide the image tool button)
-- `hide_hyperlink_tool` (true if you want to hide the hyperlink tool button)
+- `width` total width of editor
+- `height` total height of editor
+
+- `canvas_width` initial canvas width
+- `canvas_height` initial canvas height
+- `canvas_expansion` 0 if you want to disable scrolling
+
+- `hide_rulers` true if you want to hide the canvas rulers
+- `hide_menu` true if you want svg-edit's menu to be hidden
+- `hide_image_tool` true if you want to hide the image tool button
+- `hide_hyperlink_tool` true if you want to hide the hyperlink tool button
+
+- `id` override the default id (see explanation below)
+- `value` override the default value (the svg itself; can be useful when using form_for)
+- `index` override the default index (affects the tag name; can be useful when using form_for)
+
 - other standard html attributes for the input tag
+
+Sketchily requires a unique `id` (by default, this is set in the same way as hidden_field) each time it is called in the same page.
+However, some uses of `form_for` can generate repeated ids (e.g. multiple `form_for @my_object.new` in the same page).
+In those cases, you need to generate and specify your own unique ids. A possible solution is to use one of the many uuid generator gems.
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.
 

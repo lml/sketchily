@@ -4,11 +4,12 @@
    # value
    # options %>
 
+<% options = {:id => id,
+              :value => value}.merge(options) %>
+
 <%= render :partial => "sketchily/embed",
            :formats => :html,
-           :locals => options.slice(*Sketchily::OPTIONS).merge(
-                        {:id => id,
-                         :value => value}) %>
+           :locals => options.slice(*Sketchily::OPTIONS) %>
 
-<%= tag :input, { "type" => "hidden", "name" => name, "id" => id, "value" => value }.update(options.except(*Sketchily::OPTIONS).stringify_keys) %>
+<%= tag :input, {"type" => "hidden", "name" => name}.update(options.except(*Sketchily::SKETCHILY_OPTIONS).stringify_keys) %>
 

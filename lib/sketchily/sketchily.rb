@@ -38,3 +38,4 @@ end
 
 ActionView::Helpers::FormBuilder.send :include, Sketchily::FormBuilderInstanceMethods
 ActionView::Base.send :include, Sketchily::ActionViewBaseInstanceMethods
+

@@ -3150,7 +3150,7 @@
 // 						'height': {l: '19px', xl: '28px'}
 // 					},
 // 					"input.spin-button": {
-// 						'background-image': {l: "url('images/spinbtn_updn_big.png')", xl: "url('images/spinbtn_updn_big.png')"},
+// 						'background-image': {l: "url('/assets/images/spinbtn_updn_big.png')", xl: "url('/assets/images/spinbtn_updn_big.png')"},
 // 						'background-position': {l: '100% -5px', xl: '100% -2px'},
 // 						'padding-right': {l: '24px', xl: '24px' }
 // 					},

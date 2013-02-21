@@ -3,10 +3,21 @@
    # Clients of this partial must supply the following variables:
    # id
    # value
-   # show_menu
-   # hide_image_tool %>
+   # hide_menu
+   # hide_image_tool
+   # hide_hyperlink_tool %>
 
 var svgCanvas_<%= id %> = null;
+
+function submitHandler_<%= id %>(e) {
+  svgCanvas_<%= id %>.getSvgString()(handleSvgData_<%= id %>);
+  e.preventDefault();
+  e.stopImmediatePropagation();
+}
+
+function attachSubmitHandler_<%= id %>() {
+  $("input#<%= id %>").closest("form").on("submit", submitHandler_<%= id %>);
+}
 
 function handleSvgData_<%= id %>(data, error) {
   if (error) {
@@ -14,6 +25,8 @@ function handleSvgData_<%= id %>(data, error) {
   }
   else {
     $("input#<%= id %>").attr("value", svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data));
+    $("input#<%= id %>").closest("form").off("submit", submitHandler_<%= id %>);
+    $("input#<%= id %>").closest("form").one("submit", attachSubmitHandler_<%= id %>);
     $("input#<%= id %>").closest("form").submit();
   }
 }
@@ -28,23 +41,26 @@ function initEmbed_<%= id %>() {
     doc = frame.contentWindow.document;
   }
 
-  <% if show_menu %>
+  <% if hide_menu %>
     var mainButton = doc.getElementById('main_button');
-    mainButton.style.display = 'block';
+    mainButton.parentNode.removeChild(mainButton);
     var toolsTop = doc.getElementById('tools_top');
-    toolsTop.style.left = '120px';
-    toolsTop.style.right = '2px';
+    toolsTop.style.left = '5px';
   <% end %>
   
   <% if hide_image_tool %>
     var imageTool = doc.getElementById('tool_image');
-    imageTool.style.display = 'none';
+    imageTool.parentNode.removeChild(imageTool);
   <% end %>
-  
-  $("input#<%= id %>").closest("form").one("submit", function(event) {
-    svgCanvas_<%= id %>.getSvgString()(handleSvgData_<%= id %>);
-    event.preventDefault();
-  });
+
+  <% if hide_hyperlink_tool %>
+    var hyperlinkTool = doc.getElementById('tool_make_link');
+    hyperlinkTool.parentNode.removeChild(hyperlinkTool);
+  <% end %>
 
   svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));
+
+  attachSubmitHandler_<%= id %>();
 }
+
+$("#svgedit_<%= id %>").load(initEmbed_<%= id %>);

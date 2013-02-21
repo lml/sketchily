@@ -3,28 +3,19 @@
    # value
    #
    # Additionally, they may override the following variables:
-   show_menu ||= false
-   hide_image_tool ||= false
+   width ||= "750px"
+   height ||= "650px"
    canvas_width ||= 640
    canvas_height ||= 480
    canvas_expansion ||= 3
    hide_rulers ||= false
-   width ||= "750px"
-   height ||= "650px"
+   hide_menu ||= false
+   hide_image_tool ||= false
+   hide_hyperlink_tool ||= false
    url ||= nil
 %>
 
-<%= javascript_include_tag "embedapi" %>
-<%= javascript_include_tag "svgutils" %>
-
-<script type="text/javascript">
-  <%= render :partial => "sketchily/embed",
-             :formats => :js,
-             :locals => {:id => id,
-                         :value => value,
-                         :show_menu => show_menu,
-                         :hide_image_tool => hide_image_tool} %>
-</script>
+<%= javascript_include_tag "sketchily_embed" %>
 
 <%
   iframe_src = URI.parse("/assets/svg-editor.html")
@@ -41,5 +32,14 @@
                 :src => iframe_src.to_s.html_safe,
                 :width => width,
                 :height => height,
-                :id => "svgedit_#{id}",
-                :onload => "initEmbed_#{id}();") %>
+                :id => "svgedit_#{id}") %>
+
+<script type="text/javascript">
+  <%= render :partial => "sketchily/embed",
+             :formats => :js,
+             :locals => {:id => id,
+                         :value => value,
+                         :hide_menu => hide_menu,
+                         :hide_image_tool => hide_image_tool,
+                         :hide_hyperlink_tool => hide_hyperlink_tool} %>
+</script>

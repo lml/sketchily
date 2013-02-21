@@ -59,7 +59,7 @@ svgEditor.addExtension("view_grid", function(s) {
         });
         
         gridPattern.appendChild(gridimg);
-        $('#svgroot defs').append(gridPattern);
+        $('#canvasGrid').append(gridPattern);
 
         // grid-box
         var gridBox = svgdoc.createElementNS(svgns, "rect");

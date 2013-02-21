@@ -62,9 +62,11 @@ Currently available options are:
 - `canvas_height` (initial canvas height)
 - `canvas_expansion` (0 if you want to disable scrolling)
 - `hide_rulers` (true if you want to hide the canvas rulers)
+- `url` (start the canvas with the given svg)
 - `hide_menu` (true if you want svg-edit's menu to be hidden)
 - `hide_image_tool` (true if you want to hide the image tool button)
 - `hide_hyperlink_tool` (true if you want to hide the hyperlink tool button)
+- `show_layers` (true if you want the layers on the side to automatically show)
 - other standard html attributes for the input tag
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.

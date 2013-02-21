@@ -11,12 +11,30 @@
    hide_rulers ||= false
    hide_menu ||= false
    hide_image_tool ||= false
-   hide_hyperlink_tool ||= false %>
+   hide_hyperlink_tool ||= false
+   show_layers ||= false
+   url ||= nil
+%>
 
 <%= javascript_include_tag "sketchily_embed" %>
 
-<iframe src="/assets/svg-editor.html?source=&dimensions=<%= "#{canvas_width},#{canvas_height}" %>&canvas_expansion=<%= canvas_expansion %>&showRulers=<%= !hide_rulers %>"
-  width="<%= width %>" height="<%= height %>" id="svgedit_<%= id %>"></iframe>
+<%
+  iframe_src = URI.parse("/assets/svg-editor.html")
+  query_hash = {:source => nil,
+                :dimensions => [canvas_width, canvas_height].join(','),
+                :canvas_expansion => canvas_expansion,
+                :showRulers => !hide_rulers,
+                :showlayers => show_layers}
+  query_hash[:url] = url if url
+  iframe_src.query = query_hash.map{|p| "#{p[0]}=#{p[1]}"}.join('&')
+%>
+
+<%= content_tag(:iframe,
+                "",
+                :src => iframe_src.to_s.html_safe,
+                :width => width,
+                :height => height,
+                :id => "svgedit_#{id}") %>
 
 <script type="text/javascript">
   <%= render :partial => "sketchily/embed",

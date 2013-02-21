@@ -66,6 +66,7 @@ Currently available options are:
 - `hide_menu` (true if you want svg-edit's menu to be hidden)
 - `hide_image_tool` (true if you want to hide the image tool button)
 - `hide_hyperlink_tool` (true if you want to hide the hyperlink tool button)
+- `show_layers` (true if you want the layers on the side to automatically show)
 - other standard html attributes for the input tag
 
 It is recommended that the database entries associated with sketchily form elements be of type `text`.

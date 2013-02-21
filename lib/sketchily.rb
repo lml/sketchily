@@ -5,7 +5,7 @@ require "sketchily/sketchily_tag"
 module Sketchily
   ASSET_FILES = %w(sketchily.css sketchily.js sketchily_embed.js canvg/canvg.js canvg/rgbcolor.js extensions/ext-*.js locale/lang.*.js)
 
-  OPTIONS = [:width, :height, :canvas_width, :canvas_height, :canvas_expansion, :hide_rulers, :hide_menu, :hide_image_tool, :hide_hyperlink_tool, :url]
+  OPTIONS = [:width, :height, :canvas_width, :canvas_height, :canvas_expansion, :hide_rulers, :hide_menu, :hide_image_tool, :hide_hyperlink_tool, :url, :show_layers]
 
   ROOT = File.expand_path('../..', __FILE__)
 

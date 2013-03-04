@@ -1,2 +1,2 @@
 //= require embedapi
-//= require svgutils
+//= require base64

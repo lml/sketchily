@@ -24,7 +24,7 @@ function handleSvgData_<%= id %>(data, error) {
     alert('Error: ' + error);
   }
   else {
-    $("input#<%= id %>").attr("value", svgedit.utilities.encode64("<?xml version=\"1.0\"?>\n" + data));
+    $("input#<%= id %>").attr("value", sketchily_encode64("<?xml version=\"1.0\"?>\n" + data));
     $("input#<%= id %>").closest("form").off("submit", submitHandler_<%= id %>);
     $("input#<%= id %>").closest("form").one("submit", attachSubmitHandler_<%= id %>);
     $("input#<%= id %>").closest("form").submit();
@@ -58,7 +58,7 @@ function initEmbed_<%= id %>() {
     hyperlinkTool.parentNode.removeChild(hyperlinkTool);
   <% end %>
 
-  svgCanvas_<%= id %>.setSvgString(svgedit.utilities.decode64("<%= value.try(:squish) %>"));
+  svgCanvas_<%= id %>.setSvgString(sketchily_decode64("<%= value.try(:squish) %>"));
 
   attachSubmitHandler_<%= id %>();
 }

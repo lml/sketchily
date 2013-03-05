@@ -9,8 +9,7 @@
 // Converts a string to base64
 var sketchily_encode64 = function(input) {
   // base64 strings are 4/3 larger than the original string
-//	input = svgedit.utilities.encodeUTF8(input); // convert non-ASCII characters
-  input = svgedit.utilities.convertToXMLReferences(input);
+  input = sketchily_convertToXMLReferences(input);
   if(window.btoa) return window.btoa(input); // Use native if available
   var output = new Array( Math.floor( (input.length + 2) / 3 ) * 4 );
   var chr1, chr2, chr3;
@@ -78,4 +77,19 @@ var sketchily_decode64 = function(input) {
 
    } while (i < input.length);
    return unescape(output);
+};
+
+// Function: sketchily_convertToXMLReferences 
+// Converts a string to use XML references
+var sketchily_convertToXMLReferences = function(input) {
+	var output = '';
+	for (var n = 0; n < input.length; n++){
+		var c = input.charCodeAt(n);
+		if (c < 128) {
+			output += input[n];
+		} else if(c > 127) {
+			output += ("&#" + c + ";");
+		}
+	}
+	return output;
 };

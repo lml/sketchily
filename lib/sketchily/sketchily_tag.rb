@@ -1,9 +1,15 @@
 module SketchilyTag
   module ActionViewBaseInstanceMethods
     def sketchily_tag(name, value = nil, options = {})
-      Sketchily.render(:partial => "sketchily/sketchily_tag",
-        :locals => {:name => name, :id => sanitize_to_id(name),
-                    :value => value, :options => options})
+      self.render(
+        :partial => "sketchily/sketchily_tag",
+        :locals => {
+          :name => name,
+          :id => sanitize_to_id(name),
+          :value => value,
+          :options => options
+        }
+      )
     end
 
     def svg_edit_tag(name, value = nil, options = {})

@@ -5,7 +5,8 @@
    # value
    # hide_menu
    # hide_image_tool
-   # hide_hyperlink_tool %>
+   # hide_hyperlink_tool 
+   # url %>
 
 var svgCanvas_<%= id %> = null;
 
@@ -58,7 +59,9 @@ function initEmbed_<%= id %>() {
     hyperlinkTool.parentNode.removeChild(hyperlinkTool);
   <% end %>
 
-  svgCanvas_<%= id %>.setSvgString(sketchily_decode64("<%= value.try(:squish) %>"));
+  <% unless url %>
+    svgCanvas_<%= id %>.setSvgString(sketchily_decode64("<%= value.try(:squish) %>"));
+  <% end %>
 
   attachSubmitHandler_<%= id %>();
 }

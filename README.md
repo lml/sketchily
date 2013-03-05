@@ -68,7 +68,7 @@ Currently available options are:
 - `hide_image_tool` true if you want to hide the image tool button
 - `hide_hyperlink_tool` true if you want to hide the hyperlink tool button
 
-- `url` override contents of the canvas with the svg in the given url (use carefully: changes will be lost every time the editor is loaded)
+- `url` override contents of the canvas with the svg file in the given url (careful: changes lost whenever editor is loaded)
 
 - `id` override the default id (see explanation below)
 - `value` override the default value (the svg itself; can be useful when using form_for)

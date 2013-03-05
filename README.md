@@ -108,8 +108,8 @@ Example usage (haml):
 
 Currently available options are:
 
-- `width` (width of resulting image object)
-- `height` (height of resulting image object)
+- `width` width of resulting image object
+- `height` height of resulting image object
 
 - `bkgd_color` background color (3 or 6 hex digit html color format)
 - `bkgd_file` background image file path (must be a local image file)

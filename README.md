@@ -112,7 +112,7 @@ Currently available options are:
 - `height` (height of resulting image object)
 
 - `bkgd_color` background color (3 or 6 hex digit html color format)
-- `bkgd_file` background image file path (must be accessible through the server's filesystem)
+- `bkgd_file` background image file path (must be a local image file)
 
 Passing only one of those options should keep the aspect ratio of the SVG constant in most browsers.
 

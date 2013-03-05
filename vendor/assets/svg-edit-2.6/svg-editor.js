@@ -57,7 +57,7 @@
 				langPath: '/assets/locale/',
 				extPath: '/assets/extensions/',
 				jGraduatePath: '/assets/jgraduate/images/',
-				extensions: ['ext-markers.js','ext-connector.js', 'ext-eyedropper.js', 'ext-shapes.js', 'ext-grid.js'],
+				extensions: ['ext-markers.js','ext-connector.js', 'ext-eyedropper.js', 'ext-shapes.js', 'ext-imagelib.js', 'ext-grid.js'],
 				initTool: 'select',
 				wireframe: false,
 				colorPickerCSS: null,

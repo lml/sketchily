@@ -59,6 +59,9 @@ Currently available options are:
 - `width` total width of editor
 - `height` total height of editor
 
+- `bkgd_color` canvas background color (3 or 6 hex digit html color format; not saved with image)
+- `bkgd_url` canvas background raster image url (not saved with image)
+
 - `canvas_width` initial canvas width
 - `canvas_height` initial canvas height
 - `canvas_expansion` 0 if you want to disable scrolling

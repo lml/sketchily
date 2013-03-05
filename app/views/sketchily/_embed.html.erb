@@ -5,6 +5,8 @@
    # Additionally, they may override the following variables:
    width ||= "750px"
    height ||= "650px"
+   bkgd_color ||= "FFF"
+   bkgd_url ||= ""
    canvas_width ||= 640
    canvas_height ||= 480
    canvas_expansion ||= 3
@@ -19,14 +21,13 @@
 <% iframe_src = URI.parse("/assets/svg-editor.html")
 
    query_hash = {:dimensions => [canvas_width, canvas_height].join(','),
+                 :bkgd_color => bkgd_color,
+                 :bkgd_url => bkgd_url,
                  :canvas_expansion => canvas_expansion,
                  :showRulers => !hide_rulers,
                  :showlayers => show_layers}
-   if url
-     query_hash[:url] = url
-   else
-     query_hash[:source] = nil
-   end
+   query_hash[:url] = url if url
+   query_hash[:source] = nil unless url
 
    iframe_src.query = query_hash.map{|k,v| "#{k}=#{v}"}.join('&') %>
 

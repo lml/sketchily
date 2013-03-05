@@ -68,6 +68,8 @@ Currently available options are:
 - `hide_image_tool` true if you want to hide the image tool button
 - `hide_hyperlink_tool` true if you want to hide the hyperlink tool button
 
+- `show_layers` (true if you want the layer selector to display automatically when the editor is loaded)
+
 - `url` override contents of the canvas with the svg file in the given url (careful: changes lost whenever editor is loaded)
 
 - `id` override the default id (see explanation below)

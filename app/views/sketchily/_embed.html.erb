@@ -12,6 +12,7 @@
    hide_menu ||= false
    hide_image_tool ||= false
    hide_hyperlink_tool ||= false
+   show_layers ||= false
    url ||= nil
 %>
 
@@ -19,7 +20,8 @@
 
    query_hash = {:dimensions => [canvas_width, canvas_height].join(','),
                  :canvas_expansion => canvas_expansion,
-                 :showRulers => !hide_rulers}
+                 :showRulers => !hide_rulers,
+                 :showlayers => show_layers}
    if url
      query_hash[:url] = url
    else
@@ -47,3 +49,4 @@
                          :hide_hyperlink_tool => hide_hyperlink_tool,
                          :url => url} %>
 </script>
+

@@ -22,7 +22,7 @@ module SketchilyHelper
         end
         doc.at('g').before(bkgd_color_node)
       end
-print doc.to_xml
+
       uri = Base64.strict_encode64(doc.to_xml)
     end
 

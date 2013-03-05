@@ -5219,11 +5219,11 @@ this.svgToString = function(elem, indent) {
 					}
 					
 					// Embed images when saving 
-					if(save_options.apply
-						&& elem.nodeName === 'image' 
+					if(/*save_options.apply
+						&& */elem.nodeName === 'image' 
 						&& attr.localName === 'href'
-						&& save_options.images
-						&& save_options.images === 'embed') 
+						/*&& save_options.images
+						&& save_options.images === 'embed'*/) 
 					{
 						var img = encodableImages[attrVal];
 						if(img) attrVal = img;

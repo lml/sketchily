@@ -59,8 +59,8 @@ Currently available options are:
 - `width` total width of editor
 - `height` total height of editor
 
-- `bkgd_color` canvas background color (3 or 6 hex digit html color format; not saved with image)
-- `bkgd_url` canvas background raster image url (not saved with image)
+- `bkgd_color` canvas background color (3 or 6 hex digit html color format; not saved with image; see sketchily_show)
+- `bkgd_url` canvas background image url (not saved with image; see bkgd_file option for sketchily_show)
 
 - `canvas_width` initial canvas width
 - `canvas_height` initial canvas height
@@ -68,8 +68,9 @@ Currently available options are:
 
 - `hide_rulers` true if you want to hide the canvas rulers
 - `hide_menu` true if you want svg-edit's menu to be hidden
-- `hide_image_tool` true if you want to hide the image tool button
-- `hide_hyperlink_tool` true if you want to hide the hyperlink tool button
+- `hide_image_tool` true if you want to hide the `image tool` button
+
+- `show_hyperlink_tool` true if you want to show the `hyperlink tool` button (see explanation below)
 
 - `show_layers` (true if you want the layer selector to display automatically when the editor is loaded)
 
@@ -80,6 +81,10 @@ Currently available options are:
 - `index` override the default index (affects the tag name; can be useful when using form_for)
 
 - other standard html attributes for the input tag
+
+The `hyperlink tool` is disabled by default, as embedded links and scripts do not work with the display method used by sketchily_show.
+The sketchily_show helper will display svg's inside of <img> tags, which are treated as static images by most browsers.
+We consider this to be a necessary precaution when dealing with user-generated svg's.
 
 Sketchily requires a unique `id` (by default, this is set in the same way as hidden_field) each time it is called in the same page.
 However, some uses of `form_for` can generate repeated ids (e.g. multiple `form_for @my_object.new` in the same page).
@@ -105,6 +110,9 @@ Currently available options are:
 
 - `width` (width of resulting image object)
 - `height` (height of resulting image object)
+
+- `bkgd_color` background color (3 or 6 hex digit html color format)
+- `bkgd_file` background image file path (must be accessible through the server's filesystem)
 
 Passing only one of those options should keep the aspect ratio of the SVG constant in most browsers.
 

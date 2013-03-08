@@ -38,16 +38,15 @@
                 :src => iframe_src.to_s.html_safe,
                 :width => width,
                 :height => height,
-                :id => "svgedit_#{id}") %>
+                :id => "svgedit_#{id}",
+                :style => "visibility: hidden") %>
 
 <script type="text/javascript">
-  <%= render :partial => "sketchily/embed",
-             :formats => :js,
-             :locals => {:id => id,
-                         :value => value,
-                         :hide_menu => hide_menu,
-                         :hide_image_tool => hide_image_tool,
-                         :show_hyperlink_tool => show_hyperlink_tool,
-                         :url => url} %>
+  attachLoadHandler("<%= id %>",
+                    "<%= value.try(:squish) %>",
+                    <%= hide_menu %>,
+                    <%= hide_image_tool %>,
+                    <%= show_hyperlink_tool %>,
+                    "<%= url %>");
 </script>
 

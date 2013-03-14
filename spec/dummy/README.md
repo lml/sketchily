@@ -1,3 +1,3 @@
 ## Dummy
 
-A dummy application used for testing the sketchily engine.
+A dummy application used to test the Sketchily engine.

@@ -12,9 +12,7 @@ module SketchilyTag
       )
     end
 
-    def svg_edit_tag(name, value = nil, options = {})
-      sketchily_tag(name, value, options)
-    end
+    alias_method :svg_edit_tag, :sketchily_tag
   end
 end
 

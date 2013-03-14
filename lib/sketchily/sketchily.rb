@@ -12,9 +12,7 @@ module Sketchily
       )
     end
 
-    def svg_edit(method, options = {})
-      sketchily(method, options)
-    end
+    alias_method :svg_edit, :sketchily
   end
 
   module ActionViewBaseInstanceMethods
@@ -30,9 +28,7 @@ module Sketchily
       )
     end
 
-    def svg_edit(object_name, method, options = {})
-      sketchily(object_name, method, options)
-    end
+    alias_method :svg_edit, :sketchily
   end
 end
 

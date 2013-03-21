@@ -10,7 +10,7 @@ module Sketchily
   OPTIONS = SKETCHILY_OPTIONS + TAG_OPTIONS
 
   ActiveSupport.on_load(:before_initialize) do
-    Rails.configuration.assets.precompile += Sketchily::ASSET_FILES
+    Rails.configuration.assets.precompile += ASSET_FILES
   end
 end
 

@@ -4,13 +4,20 @@
    # method
    # options %>
 
-<% sketchily_tag = ActionView::Helpers::InstanceTag.new(object_name, method, template, options.delete(:object))
+<% if Rails::VERSION::MAJOR < 4
+     sketchily_tag = ActionView::Helpers::InstanceTag.new(object_name, method, template, options.delete(:object))
+   else
+     sketchily_tag = ActionView::Helpers::Tags::HiddenField.new(object_name, method, template,
+                     options.except(*Sketchily::SKETCHILY_OPTIONS))
+   end
+
    options = {:id => sketchily_tag.send(:tag_id),
-              :value => sketchily_tag.value(sketchily_tag.object)}.merge(options) %>
+              :value => sketchily_tag.send(:value, sketchily_tag.object)}.merge(options) %>
 
 <%= render :partial => "sketchily/embed",
            :formats => :html,
            :locals => options.slice(*Sketchily::OPTIONS) %>
 
-<%= sketchily_tag.to_input_field_tag("hidden", options.except(*Sketchily::SKETCHILY_OPTIONS)) %>
+<%= Rails::VERSION::MAJOR < 4 ? sketchily_tag.to_input_field_tag("hidden", options.except(*Sketchily::SKETCHILY_OPTIONS)) :
+                                sketchily_tag.render %>
 

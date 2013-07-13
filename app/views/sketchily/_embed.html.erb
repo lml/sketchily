@@ -16,6 +16,7 @@
    show_hyperlink_tool ||= false
    show_layers ||= false
    url ||= nil
+   extensions ||= nil
 %>
 
 <% iframe_src = URI.parse("/assets/svg-editor.html")
@@ -28,6 +29,7 @@
                  :showlayers => show_layers}
    query_hash[:url] = url if url
    query_hash[:source] = nil unless url
+   query_hash[:extensions] = extensions if extensions
 
    iframe_src.query = query_hash.map{|k,v| "#{k}=#{v}"}.join('&') %>
 

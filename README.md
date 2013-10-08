@@ -18,7 +18,7 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
+Or install it yourself:
 
 ```sh
 $ gem install sketchily
@@ -74,13 +74,13 @@ Currently available options are:
 
 - `show_layers` (true if you want the layer selector to display automatically when the editor is loaded)
 
-- `extensions` editor plugins (e.g. 'plugin.js' will load '/assets/extensions/plugin.js')
-
 - `url` override contents of the canvas with the svg file in the given url (careful: changes lost whenever editor is loaded)
 
 - `id` override the default id (see explanation below)
 - `value` override the default value (the svg itself; can be useful when using form_for)
 - `index` override the default index (affects the tag name; can be useful when using form_for)
+
+- `extensions` editor plugins (e.g. 'plugin.js' will load '/assets/extensions/plugin.js')
 
 - other standard html attributes for the input tag
 

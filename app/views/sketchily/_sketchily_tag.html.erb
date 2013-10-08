@@ -12,4 +12,3 @@
            :locals => options.slice(*Sketchily::OPTIONS) %>
 
 <%= tag :input, {"type" => "hidden", "name" => name}.update(options.except(*Sketchily::SKETCHILY_OPTIONS).stringify_keys) %>
-

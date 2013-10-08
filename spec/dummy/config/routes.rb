@@ -1,5 +1,8 @@
 Dummy::Application.routes.draw do
-  resource :drawings
-  get 'sketchily', :to => 'sketchily#sketchily'
-  get 'sketchily_tag', :to => 'sketchily#sketchily_tag'
+  resources :drawings, :only => [:show, :update] do
+    member do
+      get 'sketchily'
+      get 'sketchily_tag'
+    end
+  end
 end

@@ -5,10 +5,8 @@
    # options %>
 
 <% sketchily_tag = Rails::VERSION::MAJOR >= 4 ?
-                     ActionView::Helpers::Tags::HiddenField.new(object_name, method, template,
-                       options.except(*Sketchily::SKETCHILY_OPTIONS)).render :
+                     ActionView::Helpers::Tags::HiddenField.new(object_name, method, template, options.except(*Sketchily::SKETCHILY_OPTIONS)) :
                      ActionView::Helpers::InstanceTag.new(object_name, method, template, options.delete(:object))
-                       .to_input_field_tag("hidden", options.except(*Sketchily::SKETCHILY_OPTIONS))
 
    options = {:id => sketchily_tag.send(:tag_id),
               :value => sketchily_tag.send(:value, sketchily_tag.object)}.merge(options) %>
@@ -17,4 +15,5 @@
            :formats => :html,
            :locals => options.slice(*Sketchily::OPTIONS) %>
 
-<%= sketchily_tag %>
+<%= Rails::VERSION::MAJOR >= 4 ? sketchily_tag.render :
+      sketchily_tag.to_input_field_tag("hidden", options.except(*Sketchily::SKETCHILY_OPTIONS)) %>

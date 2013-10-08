@@ -2363,7 +2363,7 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 			svgCanvas.cloneSelectedElements(0,0);
 		}
 	
-		root_sctm = svgcontent.getScreenCTM().inverse();
+		root_sctm = $('#svgcontent g')[0].getScreenCTM().inverse();
 		
 		var pt = transformPoint( evt.pageX, evt.pageY, root_sctm ),
 			mouse_x = pt.x * current_zoom,
@@ -3480,7 +3480,7 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 		if(!e.shiftKey) return;
 		e.preventDefault();
 
-		root_sctm = svgcontent.getScreenCTM().inverse();
+		root_sctm = $('#svgcontent g')[0].getScreenCTM().inverse();
 		var pt = transformPoint( e.pageX, e.pageY, root_sctm );
 		var bbox = {
 			'x': pt.x,

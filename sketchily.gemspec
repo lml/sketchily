@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Dante Soares"]
   s.email       = ["dms3@rice.edu"]
   s.homepage    = "http://github.com/lml/sketchily"
+  s.license = 'MIT'
   s.summary     = "Easy svg-edit integration for any rails application."
   s.description = "Sketchily adds another form input tag to your application designed to allow the user to create or edit svg images through svg-edit."
 
@@ -22,4 +23,3 @@ Gem::Specification.new do |s|
   s.add_development_dependency "minitest-rails"
   s.add_development_dependency "minitest-rails-capybara"
 end
-

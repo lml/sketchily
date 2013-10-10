@@ -147,7 +147,7 @@ svgEditor.addExtension("shapes", function() {
 
 	
 	return {
-		svgicons: "/assets/extensions/ext-shapes.xml",
+		svgicons: "/assets/svg-edit-2.6/extensions/ext-shapes.xml",
 		buttons: [{
 			id: "tool_shapelib",
 			type: "mode_flyout", // _flyout

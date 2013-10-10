@@ -24,15 +24,17 @@ Or install it yourself:
 $ gem install sketchily
 ```
 
-Also make sure your `application.js` requires jquery (it usually does by default):
+Also make sure your `application.js` includes some version of jquery. It usually does by default.
+If you use the jquery-rails gem, you will have something like this:
 
 ```js
 //= require jquery
+//= require jquery_ujs
 ```
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
-    sketchily.css sketchily.js sketchily_embed.js canvg/canvg.js canvg/rgbcolor.js extensions/ext-*.js locale/lang.*.js
+    sketchily.css sketchily.js sketchily_embed.js svg-edit-2.6/canvg/canvg.js svg-edit-2.6/canvg/rgbcolor.js svg-edit-2.6/extensions/ext-*.js svg-edit-2.6/locale/lang.*.js
 
 Other html files and images used by svg-edit will also be precompiled.
 

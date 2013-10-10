@@ -53,10 +53,10 @@
 					opacity: 1
 				},
 				initOpacity: 1,
-				imgPath: '/assets/images/',
-				langPath: '/assets/locale/',
-				extPath: '/assets/extensions/',
-				jGraduatePath: '/assets/jgraduate/images/',
+				imgPath: '/assets/svg-edit-2.6/images/',
+				langPath: '/assets/svg-edit-2.6/locale/',
+				extPath: '/assets/svg-edit-2.6/extensions/',
+				jGraduatePath: '/assets/svg-edit-2.6/jgraduate/images/',
 				extensions: ['ext-markers.js','ext-connector.js', 'ext-eyedropper.js', 'ext-shapes.js', 'ext-imagelib.js', 'ext-grid.js'],
 				initTool: 'select',
 				wireframe: false,
@@ -2641,8 +2641,8 @@
 				if(window.canvg) {
 					svgCanvas.rasterExport();
 				} else {
-					$.getScript('/assets/canvg/rgbcolor.js', function() {
-						$.getScript('/assets/canvg/canvg.js', function() {
+					$.getScript('/assets/svg-edit-2.6/canvg/rgbcolor.js', function() {
+						$.getScript('/assets/svg-edit-2.6/canvg/canvg.js', function() {
 							svgCanvas.rasterExport();
 						});
 					});
@@ -3150,7 +3150,7 @@
 // 						'height': {l: '19px', xl: '28px'}
 // 					},
 // 					"input.spin-button": {
-// 						'background-image': {l: "url('/assets/images/spinbtn_updn_big.png')", xl: "url('/assets/images/spinbtn_updn_big.png')"},
+// 						'background-image': {l: "url('/assets/svg-edit-2.6/images/spinbtn_updn_big.png')", xl: "url('/assets/svg-edit-2.6/images/spinbtn_updn_big.png')"},
 // 						'background-position': {l: '100% -5px', xl: '100% -2px'},
 // 						'padding-right': {l: '24px', xl: '24px' }
 // 					},
@@ -3603,7 +3603,7 @@
 
 			// Test for embedImage support (use timeout to not interfere with page load)
 			setTimeout(function() {
-				svgCanvas.embedImage('/assets/images/logo.png', function(datauri) {
+				svgCanvas.embedImage('/assets/svg-edit-2.6/images/logo.png', function(datauri) {
 					if(!datauri) {
 						// Disable option
 						$('#image_save_opts [value=embed]').attr('disabled','disabled');

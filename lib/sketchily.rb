@@ -3,7 +3,7 @@ require "sketchily/sketchily"
 require "sketchily/sketchily_tag"
 
 module Sketchily
-  ASSET_FILES = %w(sketchily.css sketchily.js sketchily_embed.js canvg/canvg.js canvg/rgbcolor.js extensions/ext-*.js locale/lang.*.js)
+  ASSET_FILES = %w(sketchily.css sketchily.js sketchily_embed.js svg-edit-2.6/canvg/canvg.js svg-edit-2.6/canvg/rgbcolor.js svg-edit-2.6/extensions/ext-*.js svg-edit-2.6/locale/lang.*.js)
 
   SKETCHILY_OPTIONS = [:width, :height, :bkgd_color, :bkgd_url, :canvas_width, :canvas_height, :canvas_expansion, :hide_rulers, :hide_menu, :hide_image_tool, :show_hyperlink_tool, :show_layers, :url, :extensions]
   TAG_OPTIONS = [:id, :value, :index]

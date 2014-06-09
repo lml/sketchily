@@ -2,14 +2,14 @@
 
 Sketchily allows the easy integration of [svg-edit](http://code.google.com/p/svg-edit/) with any rails application.
 
-Currently supports and provides `svg-edit-2.6`.
+Currently supports and provides `svg-edit-2.7`.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```rb
-gem 'sketchily'
+gem 'sketchily', git: 'https://github.com/stevobengtson/sketchily.git'
 ```
 
 And then execute:
@@ -34,7 +34,7 @@ If you use the jquery-rails gem, you will have something like this:
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
-    sketchily.css sketchily.js sketchily_embed.js svg-edit-2.6/canvg/canvg.js svg-edit-2.6/canvg/rgbcolor.js svg-edit-2.6/extensions/ext-*.js svg-edit-2.6/locale/lang.*.js
+    sketchily.css sketchily.js sketchily_embed.js svg-edit-2.7/canvg/canvg.js svg-edit-2.7/canvg/rgbcolor.js svg-edit-2.7/extensions/ext-*.js svg-edit-2.7/locale/lang.*.js
 
 Other html files and images used by svg-edit will also be precompiled.
 

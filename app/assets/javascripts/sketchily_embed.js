@@ -1,4 +1,4 @@
-//= require svg-edit-2.7/embedapi
+//= require svg-edit/embedapi
 //= require sketchily/base64
 
 var svgCanvas = svgCanvas || {};

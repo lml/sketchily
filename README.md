@@ -34,7 +34,7 @@ If you use the jquery-rails gem, you will have something like this:
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
-    sketchily.css sketchily.js sketchily_embed.js svg-edit-2.7/canvg/canvg.js svg-edit-2.7/canvg/rgbcolor.js svg-edit-2.7/extensions/ext-*.js svg-edit-2.7/locale/lang.*.js
+    sketchily.css sketchily.js sketchily_embed.js svg-edit/canvg/canvg.js svg-edit/canvg/rgbcolor.js svg-edit/extensions/ext-*.js svg-edit/locale/lang.*.js
 
 Other html files and images used by svg-edit will also be precompiled.
 

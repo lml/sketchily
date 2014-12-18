@@ -126,6 +126,10 @@ Example usage (haml):
 = sketchily_show @my_object.sketch, :width => "500"
 ```
 
+## Customizing SVG-Edit
+
+SVG-Edit can be customized with ```svg-edit/config.js``` (see [ConfigOptions](https://code.google.com/p/svg-edit/wiki/ConfigOptions)) and ```svg-edit/custom.css``` 
+
 ## Browser Support
 
 Although more testing is needed, we currently believe sketchily supports any browsers that svg-edit 2.6 supports, namely:

@@ -1,4 +1,4 @@
-//= require svg-edit-2.6/embedapi
+//= require svg-edit-2.7/embedapi
 //= require sketchily/base64
 
 var svgCanvas = svgCanvas || {};
@@ -34,7 +34,7 @@ function handleSvgData(data, error, id) {
 function initEmbed(id, value, hide_menu, hide_image_tool, show_hyperlink_tool, url) {
   var frame = document.getElementById("svgedit_" + id);
   svgCanvas[id] = new embedded_svg_edit(frame);
-  
+
   var doc = frame.contentDocument;
   if (!doc) {
     doc = frame.contentWindow.document;

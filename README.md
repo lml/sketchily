@@ -9,7 +9,7 @@ Currently supports and provides `svg-edit-2.7`.
 Add this line to your application's Gemfile:
 
 ```rb
-gem 'sketchily', git: 'https://github.com/stevobengtson/sketchily.git'
+gem 'sketchily'
 ```
 
 And then execute:

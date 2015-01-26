@@ -24,17 +24,22 @@ Or install it yourself:
 $ gem install sketchily
 ```
 
-Also make sure your `application.js` includes some version of jquery. It usually does by default.
-If you use the jquery-rails gem, you will have something like this:
+Add `//= require sketchily` to your `application.js`.
+It should look similar to this:
 
 ```js
 //= require jquery
 //= require jquery_ujs
+//= require sketchily
 ```
 
 **Note:** sketchily will **automatically** add the following files to your asset precompilation list:
 
-    sketchily.css sketchily.js sketchily_embed.js svg-edit/canvg/canvg.js svg-edit/canvg/rgbcolor.js svg-edit/extensions/ext-*.js svg-edit/locale/lang.*.js
+    sketchily.js
+    svg-edit/canvg/canvg.js
+    svg-edit/canvg/rgbcolor.js
+    svg-edit/extensions/ext-*.js
+    svg-edit/locale/lang.*.js
 
 Other html files and images used by svg-edit will also be precompiled.
 
@@ -126,13 +131,16 @@ Example usage (haml):
 = sketchily_show @my_object.sketch, :width => "500"
 ```
 
-## Customizing SVG-Edit
+## Customizing svg-edit
 
-SVG-Edit can be customized with ```svg-edit/config.js``` (see [ConfigOptions](https://code.google.com/p/svg-edit/wiki/ConfigOptions)) and ```svg-edit/custom.css``` 
+See [ConfigOptions](https://code.google.com/p/svg-edit/wiki/ConfigOptions)
+for information about how to configure svg-edit.
+Please note that most common options, like width and height should be set
+directly on calls to sketchily's functions in ruby code.
 
 ## Browser Support
 
-Although more testing is needed, we currently believe sketchily supports any browsers that svg-edit 2.6 supports, namely:
+Although more testing is needed, we currently believe sketchily supports any browsers that svg-edit supports, namely:
 
 - Firefox 1.5+
 - Opera 9.50+
